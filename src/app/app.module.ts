@@ -15,8 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { TableDBoardComponent } from './dashboard/table/table.component';
+import { TableHomeModule } from './home/table/tablehome.module';
 
-import { TableHomeComponent } from './home/table/table.component';
 
 
 @NgModule({
@@ -26,13 +26,13 @@ import { TableHomeComponent } from './home/table/table.component';
     HomeComponent,
     DashboardComponent,
     SidenavComponent,
-    TableHomeComponent,
     TableDBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    TableHomeModule,
     // * MATERIAL IMPORTS
     MatSidenavModule,
     MatToolbarModule,

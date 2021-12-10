@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { GridModule } from '@syncfusion/ej2-angular-grids';
+import {
+  PageService,
+  SortService,
+  FilterService,
+  GroupService,
+  SearchService,
+  ToolbarService,
+  EditService,
+  ForeignKeyService,
+} from '@syncfusion/ej2-angular-grids';
+import { TableHomeComponent } from './table.component';
+@NgModule({
+declarations:[TableHomeComponent],
+imports:[CommonModule,GridModule],
+providers:[
+    PageService,
+    SortService,
+    FilterService,
+    GroupService,
+    SearchService,
+    ToolbarService,
+    EditService,
+    ForeignKeyService,],
+exports:[TableHomeComponent],
+})
+export class TableHomeModule{}

@@ -1,1 +1,48 @@
-<p>vẽ table ở đây</p>
+<app-alert *ngIf="alert != ''" [content]="alert"> </app-alert>
+<div class="control-section">
+  <ejs-grid
+    #grid
+    [dataSource]="unitList"
+    locale="vi"
+    allowPaging="true"
+    [pageSettings]="pageSettings"
+    [editSettings]="editSettings"
+    [toolbar]="toolbar"
+    [allowSorting]="true"
+    (actionBegin)="actionBegin($event)"
+    (dataBound)="dataBound($event)"
+    (load)="onLoad()"
+  >
+    <e-columns>
+      <e-column
+        field="ten_KH"
+        headerText="Tên khách hàng"
+        width="200"
+        textAlign="Left"
+        [validationRules]="{
+          required: [true, 'Tên khách hàng là bắt buộc']
+        }"
+      ></e-column>
+      <e-column
+        field="dia_chi"
+        headerText="Địa chỉ"
+        width="150"
+        textAlign="Left"
+      ></e-column>
+      <e-column
+        field="gioi_tinh"
+        headerText="Giới tính"
+        width="150"
+        textAlign="Left"
+        type="date"
+      ></e-column>
+      <e-column
+      field="SĐT"
+      headerText="Số điện thoại"
+      width="150"
+      textAlign="Left"
+      type="date"
+      ></e-column>
+    </e-columns>
+  </ejs-grid>
+</div>
