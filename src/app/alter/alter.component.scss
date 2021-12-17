@@ -1,0 +1,20 @@
+@keyframes example {
+    from {
+      transform: translate(0px, -50px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
+  }
+  .alert {
+    z-index: 1001;
+    background-color: #fff;
+    width: 250px;
+    border-radius: 0;
+    box-shadow: 0px 0px 15px 2px #0000003d;
+    position: fixed;
+    top: 100px;
+    animation-name: example;
+    animation-duration: 1s;
+  }
+  

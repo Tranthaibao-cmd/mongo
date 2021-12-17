@@ -4,15 +4,26 @@
   </div>
   <mat-divider></mat-divider>
   <h2 matSubheader class="mt-2">APPLICATIONS</h2>
-
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
-    <mat-icon>home</mat-icon> Home
-  </a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
     <mat-icon>dashboard</mat-icon> Dashboard
   </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 3 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 4 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 5 </a>
-  <a mat-list-item> <mat-icon>edit</mat-icon> Link 6 </a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
+    <mat-icon>home</mat-icon> Home
+  </a>
+
+  <a mat-list-item routerLinkActive="list-item-active" (click)="showItemLink  = !showItemLink;" routerLink="/config"> 
+    <mat-icon>edit</mat-icon>config</a>
+  <div *ngIf="showItemLink" style="margin-left: 20px;">
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/config/khachhang" >
+      <mat-icon>edit</mat-icon> Link 4
+    </a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/config/mathang">
+      <mat-icon>edit</mat-icon> Link 5
+    </a> -->
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/config/nhanvien">
+      <mat-icon>edit</mat-icon> Nhân Viên
+    </a>
+  </div>
+
+
 </mat-nav-list>

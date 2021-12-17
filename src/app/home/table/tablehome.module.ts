@@ -12,9 +12,12 @@ import {
   ForeignKeyService,
 } from '@syncfusion/ej2-angular-grids';
 import { TableHomeComponent } from './table.component';
+import { DialogModule } from '@syncfusion/ej2-angular-popups';
+import { AlterModule } from 'src/app/alter/alter.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
 declarations:[TableHomeComponent],
-imports:[CommonModule,GridModule],
+imports:[CommonModule, GridModule, DialogModule,AlterModule, HttpClientModule ],
 providers:[
     PageService,
     SortService,

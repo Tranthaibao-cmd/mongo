@@ -16,7 +16,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { TableDBoardComponent } from './dashboard/table/table.component';
 import { TableHomeModule } from './home/table/tablehome.module';
-
+import {MatTreeModule} from '@angular/material/tree';
 
 
 @NgModule({
@@ -26,7 +26,7 @@ import { TableHomeModule } from './home/table/tablehome.module';
     HomeComponent,
     DashboardComponent,
     SidenavComponent,
-    TableDBoardComponent
+    TableDBoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +40,7 @@ import { TableHomeModule } from './home/table/tablehome.module';
     MatIconModule,
     MatDividerModule,
     MatListModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
