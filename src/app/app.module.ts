@@ -17,6 +17,8 @@ import { MatListModule } from '@angular/material/list';
 import { TableDBoardComponent } from './dashboard/table/table.component';
 import { TableHomeModule } from './home/table/tablehome.module';
 import {MatTreeModule} from '@angular/material/tree';
+import { UserComponent } from './user/user.component';
+import { TableUserModule } from './user/table/table.module';
 
 
 @NgModule({
@@ -27,12 +29,14 @@ import {MatTreeModule} from '@angular/material/tree';
     DashboardComponent,
     SidenavComponent,
     TableDBoardComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     TableHomeModule,
+    TableUserModule,
     // * MATERIAL IMPORTS
     MatSidenavModule,
     MatToolbarModule,

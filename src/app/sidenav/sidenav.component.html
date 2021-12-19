@@ -10,16 +10,18 @@
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
     <mat-icon>home</mat-icon> Home
   </a>
-
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/user">
+    <mat-icon>face</mat-icon> User
+  </a>
   <a mat-list-item routerLinkActive="list-item-active" (click)="showItemLink  = !showItemLink;" routerLink="/config"> 
-    <mat-icon>edit</mat-icon>config</a>
-  <div *ngIf="showItemLink" style="margin-left: 20px;">
+    <mat-icon>support</mat-icon>config</a>
+  <div *ngIf="showItemLink" style="margin-left: 5px;">
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/config/khachhang" >
-      <mat-icon>edit</mat-icon> Link 4
+      <mat-icon>edit</mat-icon>Khách Hàng
     </a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/config/mathang">
-      <mat-icon>edit</mat-icon> Link 5
-    </a> -->
+      <mat-icon>edit</mat-icon> Mặt Hàng
+    </a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/config/nhanvien">
       <mat-icon>edit</mat-icon> Nhân Viên
     </a>

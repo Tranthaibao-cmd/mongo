@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ServeKH } from 'src/app/serve/khachhang/serveKH';
 import { DataStateChangeEventArgs, GridComponent } from '@syncfusion/ej2-angular-grids';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Query, DataManager } from '@syncfusion/ej2-data';
-import { ServeMH } from 'src/app/serve/mathang/serveMH';
 @Component({
-  selector: 'app-table-Home',
+  selector: 'app-user-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableHomeComponent implements OnInit {
+export class TableComponent implements OnInit {
   @ViewChild('grid') grid: GridComponent;
   public selectedName;
   public List:Observable<DataStateChangeEventArgs>;
@@ -26,13 +26,13 @@ export class TableHomeComponent implements OnInit {
   StatusParams;
 
   constructor(
-     private MHService: ServeMH,
+     private KHService: ServeKH,
      private router: Router
   ) {
    
   }
   ngOnInit(): void {
-    this.MHService.refresh$.subscribe(() => {
+    this.KHService.refresh$.subscribe(() => {
       this.get();
     });
     this.get();
@@ -57,7 +57,7 @@ export class TableHomeComponent implements OnInit {
     this.position = { X: (screenWidth - this.width) / 2, Y: 100 };
   }
   get() {
-    this.MHService.get().subscribe((result) => {
+    this.KHService.get().subscribe((result) => {
       this.List = result.data;
     });
   }
@@ -69,10 +69,9 @@ export class TableHomeComponent implements OnInit {
         let data = {
           _id: args.data['_id'],
           ten: args.data['ten'],
-          giatien: args.data['giatien'],
-          loai: args.data['loai'],
-          mau: args.data['mau'],
-          soluong: args.data['soluong']
+          diachi: args.data['diachi'],
+          SĐT: args.data['SĐT'],
+          gioitinh: args.data['gioitinh'],
         };
         this.update(data);
       }
@@ -82,12 +81,11 @@ export class TableHomeComponent implements OnInit {
   }
   insert(data) {
     let KH = {ten: data.ten,
-              giatien:data.giatien,
-              loai:data.loai,
-              mau:data.mau,
-              soluong:data.soluong           
+              diachi:data.diachi,
+              SĐT:data.SĐT,
+              gioitinh:data.gioitinh           
       };
-    this.MHService.insert(KH).subscribe(
+    this.KHService.insert(KH).subscribe(
       (data) => {
         if (data.code == 201) {
           this.alert = 'Thêm thành công!';
@@ -106,7 +104,7 @@ export class TableHomeComponent implements OnInit {
     );
   }
   delete(_id) {
-    this.MHService.delete(_id).subscribe(
+    this.KHService.delete(_id).subscribe(
       (data) => {
         if (data.code == 200) {
           this.alert = 'Xóa thành công!';
@@ -127,16 +125,15 @@ export class TableHomeComponent implements OnInit {
   update(data) {
     this.List.forEach((item) => {
       item['ten'] == data['ten'];
-      item['giatien'] == data['giatien'];
-      item['loai'] == data['loai'];
-      item['mau'] == data['mau'];
-      item['soluong'] == data['soluong'];
+      item['diachi'] == data['diachi'];
+      item['SĐT'] == data['SĐT'];
+      item['gioitinh'] == data['gioitinh'];
 
 
     });
     let id = data._id;
     delete data._id;
-    this.MHService.update(id, data).subscribe(
+    this.KHService.update(id, data).subscribe(
       (result) => {
         if (result.code == 200) {
           this.alert = 'Cập nhật thành công!';
@@ -185,3 +182,4 @@ export class TableHomeComponent implements OnInit {
   }
 //  ngOnDestroy(): void{}
 }
+
